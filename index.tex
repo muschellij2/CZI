@@ -43,7 +43,7 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={},
-            pdftitle={Growing Neuroconductor},
+            pdftitle={Increasing the Impact of Neuroconductor},
             colorlinks=false,
             urlcolor=blue,
             linkcolor=magenta,
@@ -61,13 +61,14 @@
   {\par}
 
 % Pandoc header
+\usepackage[margin=2.5cm]{geometry}
 
 
 
 \begin{document}
 \begin{frontmatter}
 
-  \title{Growing Neuroconductor}
+  \title{Increasing the Impact of Neuroconductor}
       
   \begin{abstract}
   Over the past 5 years, Neuroconductor has centralized the packages of medical image analysis in the R community. As a repository of a wide variety of analyses of diseases such as Alzheimer's disease (Ding et al. 2019) and multiple sclerosis(Valcarcel et al. 2018; E. Sweeney et al. 2013; E. M. Sweeney et al. 2013), image processing and prediction (Tustison et al. 2019; Shrivastav et al. 2018; Polzehl and Tabelow, n.d.; Shinohara et al. 2014), image visualization (Maag 2018; Mowinckel and Vidal-Piñeiro 2019) and state-of-the-art statistical analyses (Vandekar et al. 2019). For Neurocondutorto succeeed for the next 5 years and beyond, we need to grow its contributor community, and improve the stability, usability, and portability of the platform.
@@ -140,7 +141,8 @@ We propose to create:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Formal package guidelines that mirror closely, but not exactly, those from Bioconductor (https://www.bioconductor.org/developers/package-guidelines).
+  Formal package guidelines that mirror closely, but not exactly, those from Bioconductor
+  (https://www.bioconductor.org/developers/package-guidelines).
 \item
   Examples of how to create unit tests and increase code coverage in Neuroconductor packages.
 \item
@@ -167,7 +169,7 @@ The backend code is open, located at https://github.com/adigherman/neuroconducto
 \hypertarget{ease-of-use-of-neuroconductor}{%
 \subsection{Ease of Use of Neuroconductor}\label{ease-of-use-of-neuroconductor}}
 
-We will also create a series of Docker images that have a large percentage of the Neuroconductor packages installed, including open-source third party medical imaging software such as AFNI and ANTs (Cox 1996; Avants, Tustison, and Song 2009) and other-licensed software, such as FSL ({\textbf{???}}). These images will increase the ease of use for a number of users, especially those on Windows, as many imaging software packages may not work on Windows (though almost all R packages should). An example use case is providing these Docker images for students in our ``Neurohacking in R'' course (https://www.coursera.org/learn/neurohacking), which currently provides a static virtual machine for use.
+We will also create a series of Docker images that have a large percentage of the Neuroconductor packages installed, including open-source third party medical imaging software such as AFNI and ANTs (Cox 1996; Avants, Tustison, and Song 2009) and other-licensed software, such as FSL (Jenkinson et al. 2012). These images will increase the ease of use for a number of users, especially those on Windows, as many imaging software packages may not work on Windows (though almost all R packages should). An example use case is providing these Docker images for students in our ``Neurohacking in R'' course (https://www.coursera.org/learn/neurohacking), which currently provides a static virtual machine for use.
 
 \hypertarget{scaling-neuroconductor}{%
 \subsection{Scaling Neuroconductor}\label{scaling-neuroconductor}}
@@ -271,6 +273,9 @@ Hester, Jim. 2019. \emph{covr: Test Coverage for Packages}. \url{https://CRAN.R-
 
 \leavevmode\hypertarget{ref-bioconductor}{}%
 Huber, W., V. J. Carey, R. Gentleman, S. Anders, M. Carlson, B. S. Carvalho, H. C. Bravo, et al. 2015. ``Orchestrating High-Throughput Genomic Analysis with Bioconductor.'' \emph{Nature Methods} 12 (2): 115--21. \url{http://www.nature.com/nmeth/journal/v12/n2/full/nmeth.3252.html}.
+
+\leavevmode\hypertarget{ref-fsl}{}%
+Jenkinson, Mark, Christian F. Beckmann, Timothy E. J. Behrens, Mark W. Woolrich, and Stephen M. Smith. 2012. ``FSL.'' \emph{NeuroImage} 62 (2): 782--90. \url{https://doi.org/10.1016/j.neuroimage.2011.09.015}.
 
 \leavevmode\hypertarget{ref-maag2018gganatogram}{}%
 Maag, Jesper LV. 2018. ``gganatogram: An R Package for Modular Visualisation of Anatograms and Tissues Based on ggplot2.'' \emph{F1000Research} 7.
