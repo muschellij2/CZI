@@ -52,6 +52,14 @@
 
 \setcounter{secnumdepth}{5}
 % Pandoc toggle for numbering sections (defaults to be off)
+
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
+
 % Pandoc header
 
 
@@ -60,16 +68,17 @@
 \begin{frontmatter}
 
   \title{Growing Neuroconductor}
-    
+      
   \begin{abstract}
-  Over the past 5 years, Neuroconductor has centralized the packages of medical image analysis in the R community. As a leading open source power tool to work with messy
-  data, it is taught in countless courses and workshops around the world. In
-  biomedical research alone, OpenRefine is cited in hundreds of scientific articles, in fields such as genomics {[}1, 2, 3, 4{]}, Alzheimer's disease {[}5, 6, 7{]},
-  infectious diseases {[}8, 9, 10{]}, oncology {[}11, 12, 13, 14{]} and clinical data management {[}15, 16, 17, 18{]}. To keep OpenRefine thriving in the next ten years,
-  we need to grow its contributor community and undertake fundamental improvements to its architecture.
+  Over the past 5 years, Neuroconductor has centralized the packages of medical image analysis in the R community. As a repository of a wide variety of analyses of diseases such as Alzheimer's disease (Ding et al. 2019) and multiple sclerosis(Valcarcel et al. 2018; E. Sweeney et al. 2013; E. M. Sweeney et al. 2013), image processing and prediction (Tustison et al. 2019; Shrivastav et al. 2018; Polzehl and Tabelow, n.d.; Shinohara et al. 2014), image visualization (Maag 2018; Mowinckel and Vidal-Piñeiro 2019) and state-of-the-art statistical analyses (Vandekar et al. 2019). For Neurocondutorto succeeed for the next 5 years and beyond, we need to grow its contributor community, and improve the stability, usability, and portability of the platform.
   \end{abstract}
   
  \end{frontmatter}
+
+\hypertarget{brief-description-of-neuroconductor}{%
+\section{Brief Description of Neuroconductor}\label{brief-description-of-neuroconductor}}
+
+Neuroconductor is a platform for R package submission and repository of released packages. A user submits a package to Neuroconductor from a GitHub repository The backend of the platform then runs a set of checks, then clones the repository to the Neuroconductor GitHub repository, then checks the package on the continuous integration Travis CI (for Linux/OSX) and Appveyor (Windows). Any failures in this package checks will be reported back to the author (maintainer) of the packages about what failed and what changes need to be made. As all code is on GitHub, the Neuroconductor team will also send pull requests to fix the code in many cases. The built packages are then combined every few months as a release/snapshot of all the passing packages at that time.
 
 \hypertarget{goals}{%
 \section{Goals}\label{goals}}
@@ -80,9 +89,9 @@ The main objectives of this proposal are:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  increase the number of packages and community of Neuroconductors contributors and developers by reaching out to seasoned users and helping them get involved more closely in the project.
+  improve the stability and usability of the current (N=97) packages in Neuroconductor.
 \item
-  improve the stability of the current packages in Neuroconductor.
+  increase the number of packages and community of Neuroconductor's contributors and developers by reaching out to seasoned users and helping them get involved more closely in the project.
 \item
   refactor the core architecture of the Neuroconductor backend platform to handle more packages and incorporate user workflows.
 \end{enumerate}
@@ -93,193 +102,151 @@ Our goals will be reached if:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  We add at least 10 new packages over the course of the project and get contributions from 20 existing contributors. Contributions will be defined as release updates to packages through developers GitHub repositories or submission additional packages to release.
+  Each package has a vignette (a tutorial/long-form documentation) and the all packages has a code coverage above 50\% (currently 44\% meet this criteria).
 \item
-  Each package has a vignette (a tutorial/long-form documentation) and the average code coverage of all packages is above 30\% (what is it now).
+  We add at least 10 new packages over the course of the project and get contributions from 20 existing contributors (out of 26). Contributions will be defined as release updates to packages through developers GitHub repositories or submission additional packages to release.
 \item
-  Neuroconductor can scale to 200 packages (currently has around 100) and be able to achieve monthly releases.
+  Scale the Neuroconductor framework to 200 packages (currently has 97) and be able to achieve monthly releases, including releases of Docker images.
 \end{enumerate}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\hypertarget{improve-stability-of-neuroconductor-packages}{%
+\section{Improve stability of Neuroconductor packages}\label{improve-stability-of-neuroconductor-packages}}
+
+One of the key metrics of package stability is code coverage, which we define as the proportion of the source code that is executed when running tests, examples, or vignettes (tutorials). The \texttt{covr} package (Hester 2019) has functions to report the coverage of a package, which can be reported using services such as CodeCov (https://codecov.io/) or Coveralls (https://coveralls.io/), which is implemented in Neuroconductor.
+
+With 4 releases in the past year (2019), the project has proved its ability to deliver checks and updates to a large number of packages. The stability of those releases has grown over time, which is positive, but shows that improvements to the stability of the network of packages still need to be made.
+
+John Muschelli will send a series of pull requests to packages that do not have code coverage over 50\%. These pull requests will try to increase the code coverage to necessary level, but moreso provide the groundwork for maintainers to create their own tests (especially those for edge cases). Additionally, these pull requests will create vignettes of how to use the package if none exist. These vignettes will have intentional errors and breaks so that developers must change these before submitting to Neuroconductor. Documentation on increasing code coverage will be created to more formalize this process and help developers (see the next section).
+
+By the end of the funding year, all current packages must meet these requirements to stay within the Neuroconductor repository.
 
 \hypertarget{growing-the-contributor-community}{%
 \section{Growing the contributor community}\label{growing-the-contributor-community}}
 
-The Neuroconductor platform (https://neuroconductor.org/) ({\textbf{???}}) was started in 2014 at Johns Hopkins to centralize medical image analysis R packages, similar to the effort of Bioconductor (Huber et al., 2015). One of the main strengths of Neuroconductor is the developer community, which involves XX people from YY countries, which contribute to, use, and advertise for Neuroconductor. \textbf{All packages are maintained on the developer's GitHub and mirrored on the Neuroconductor GitHub and releases.}
+The Neuroconductor platform (https://neuroconductor.org/) (Muschelli et al. 2018) was started in 2014 at Johns Hopkins to centralize medical image analysis R packages, similar to the effort of Bioconductor (Huber et al. 2015). One of the main strengths of Neuroconductor is the developer community, which involves 26 maintainers residing in 5 countries, which contribute to, use, and advertise for Neuroconductor. Our plan to strengthen the community is to host a conference call/meetup twice a year to discuss developments with the maintainers, including requesting feedback for ways to improve the platform, the submission process, feature requests, or increasing user/developer engagement. With respec to users, we have had users in over 48 countries download packages from Neuroconductor.
 
-Comparatively, the project development team is small and but also less
-diverse. Moreover, one of the developers (John Muschelli) contributes a total of XX packages to
-
-With 4 releases in the past year (2019), the project has proved its ability to deliver checks and updates to a large number of packages. The stability of those releases has grown over time, which is positive, but shows that improvements to the stability of the network of packages still need to be made. We Neuroconductor would similarly benefit from strengthening and growing its contributor community. (NOT TRANSITION)
+Comparatively, the project development team is small and but also less diverse. The team is currently all white males, 2 US-born and 2 Romanian-born. Moreover, one of the developers (John Muschelli) contributes a total of 47 packages to the project. Many of these packages (18) are data packages, which include image templates or example data sets for analysis, requiring little maintenance. We would like to increase the number of developers, especially those from different countries, races, and sex. Currently, out of the 26 maintainers, only 6 are female (23\%).
 
 We propose to take the following steps to make it easier for new developers and users to contribute to the project.
 
-\hypertarget{developing-an-official-user-guide}{%
-\subsection{Developing an official user guide}\label{developing-an-official-user-guide}}
+\hypertarget{developing-a-code-coverage-user-guide}{%
+\subsection{Developing a code coverage user guide}\label{developing-a-code-coverage-user-guide}}
 
-OpenRefine's documentation is currently written in the GitHub wiki associated with the project,2 which is imperfect in many ways: it is hard to
-discover, search and browse. There is no simple way to version it or translate it. As a consequence, users tend to write their own tutorials on external
-platforms rather than to improve the official documentation.3 Some documentation efforts play the role of official guide in certain communities.4 This
-results in a myriad of tutorials, all with a slightly different focus but with often a significant overlap in content, which gradually become outdated as the
-software evolves. As a user, this makes it hard to discover the best resources
-to learn about certain aspects of the tool.
-We propose to migrate the official documentation to a proper platform
-such as ReadTheDocs, where it can be versioned and translated natively. By
-providing an appealing space to write documentation, we hope to encourage
-existing tutorial authors to contribute directly to it. This should help us grow
-our contributor base and make it more diverse.
+We have created documentation about what changes or checks are done to packages when submitting to Neuroconductor (https://neuroconductor.org/tutorials/continuous\_integration) but no clear documentation of the expectations of the package.
 
-\hypertarget{developing-a-contributor-guide}{%
-\subsection{Developing a contributor guide}\label{developing-a-contributor-guide}}
-
-The existing documentation to get started on OpenRefine development does
-not help contributors enough. Beyond the migration to a proper documentation platform as mentioned above, we need to give instructions to get started
-with the most common Java IDE platforms (Eclipse, IntelliJ, Netbeans) and
-provide detailed guidance about common tasks (writing new GREL functions, operations, importers). We can then link to these instructions from the
-issues, to encourage prospective contributors to step in.
-
-\hypertarget{revamping-the-core-data-model}{%
-\section{revamping the core data model}\label{revamping-the-core-data-model}}
-
-OpenRefine currently uses its own data storage backend. This choice is the
-root cause of important limitations in the tool, that we outline below. Changing our data model with these issues in mind is an important investment for
-the project to remain relevant in data-intensive fields, such as biology and
-medical research.
-3.1 Working with large data sets
-The requirement to load entire projects in memory to work on them makes
-it impractical to work on large datasets such as in genomics medicine. This
-requires users to adapt the hard memory limit given to the Java Virtual
-Machine depending on the size of their datasets and their available memory,
-when they can afford enough RAM.
-3.2 Refining collaboratively
-OpenRefine is a web-based tool that is designed to be run locally by the user.
-Although it can be hosted on a server, it is not designed for collaborative
-work. As operations are applied in sequence to the project, working simultaneously on disjoint parts of a dataset is rarely viable. The tool does not
-even have a notion of ``user'' which would let it track who performed each
-change.
-3.3 Analyzing, sharing and reusing workflows
-The ability to extract workflows as JSON objects and reapply them on other
-projects is a flagship feature of the tool. However, it has serious limitations.
-It is hard to understand what a workflow does by looking at its representation in JSON, or even at the project history in the tool itself. There is no
-simple way to reorganize a workflow, isolate reusable parts or undo selected
-operations buried in the history.
-3.4 Running workflows in production
-Once a workflow has been created, one could want to run it periodically as
-part of a wider pipeline. Although many of OpenRefine's operations can be
-easily parallelized {[}19{]}, there is no simple way to run them on data streams
-discovered progressively. The scheduling of operations is also naive, as they
-are executed in sequence without any time sharing.
-
-\hypertarget{work-plan}{%
-\section{work plan}\label{work-plan}}
-
-The first objective, to grow the contributor community, will be tackled by
-Owen Stephens. Owen is best placed for this work since he is a long stand-
-ing contributor to the project on many aspects, writing documentation, contributing and reviewing code. He also runs many workshops in universities
-to teach OpenRefine to researchers and has therefore a deep understanding
-of the needs of the user community.
-The second objective, to revamp the data model, will be handled by Antonin Delpeuch. As author of some of the research behind the proposed new
-architecture {[}20{]}, Antonin is in a good position to implement it in OpenRefine. He has experience with carrying out large refactoring projects on OpenRefine's legacy code and cares deeply about how implementation decisions
-will be perceived by the end user.
-
-4.1 Growing the community
-Our strategy to attract new contributors and retain existing ones is as follows.
-The timescale is given on the assumption of Owen Stephens working part
-time on this goal (0.5 full time equivalent).
-1. Migrate the existing documentation to a new platform - 1 month
-We obtain a versioned and translatable documentation on ReadTheDocs. Existing documentation pages redirect to the new platform to
-avoid creating dead links.
-2. Write tutorials for prospective contributors - 2 months
-We document IDE set up, testing, making good pull requests. We
-show example workflows to implement new functions, importers or
-exporters.
-3. Improve the existing user documentation - 6 months
-All operations, facets, expression languages, importers and exporters
-are documented.
-4. Organize events focused on contribution to the project - 2 months
-On the occasion of OpenRefine's 10th anniversary (in 2020), we will
-organize local events in targeted communities5
-to show how to contribute to the translations, documentation and code. Use the feedback
-obtained at such events to inform the tasks above.
-
-4.2 Revamping the data model
-The new data model required to address all the issues mentioned in the
-previous section is ambitious. We anticipate that implementing it in full is
-likely to take significantly longer than a one year project. We decompose the
-work needed into packages with intermediate deliverables. We anticipate
-one year of full time development should cover packages 1 to 5. The other
-goals are mentioned to relate the work to the project's long term milestones.
-The timescale is given on the assumption of Antonin Delpeuch working full
-time on this goal for the entire duration of the project.
+We propose to create:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Preliminaries: expression languages - 1 month
-  Determining which column an expression depends on requires the ability to analyze expressions and extract the variables it reads.
-  Performing this analysis requires changing the interface implemented
-  by our expression languages (currently GREL, Jython and Clojure by
-  default) to allow for such an inspection. This can be done easily for
-  GREL but requires more work for other interpreters. Given that we
-  already have plans to migrate from Jython to GraalPython, we propose to carry out this migration and implement this analysis using the
-  Truffle library (which is used to define interpreters in the Graal framework).
+  Formal package guidelines that mirror closely, but not exactly, those from Bioconductor (https://www.bioconductor.org/developers/package-guidelines).
 \item
-  Column-based operations - 2 months
-  We introduce a new interface for row-wise, out of order operations
-  reading from a selection of columns. Existing operations which satisfy
-  these constraints can implement this interface. Similarly, facet configurations expose which columns they depend on. This new data model
-  is based on the representation proposed in {[}20{]}. At this stage the data
-  processing backend does not change yet: everything is still held in
-  memory.
+  Examples of how to create unit tests and increase code coverage in Neuroconductor packages.
 \item
-  New data processing backend - 4 months
-  We migrate workflow execution to a dataflow backend such as Apache
-  Spark {[}21{]} through Apache Beam's API {[}22{]}. In this version, the tool
-  can still execute workflows serialized in the current format, but cannot
-  read project data from previous versions.
-  We anticipate that the main benefits for end users at this stage are
-  mostly felt in memory management (ability to work on datasets which
-  do not fit in RAM) and marginal speed improvements. These benefits become important in data-intensive sciences, such as biomedical
-  research.
-\item
-  Workflow visualization - 2 months
-  We add diagrammatic representations of the list of operations that
-  are implemented, letting users understand better the structure of their
-  workflows. This is again based on {[}20{]}.
-\item
-  Operation reordering - 2 months
-  We introduce the possibility of reordering operations in the undo/redo
-  history. This feature would only be available for row-wise operations
-  working on different columns, implementing the new interface. Reordering could be triggered directly by dragging nodes on the graphical visualization.
-\item
-  Concurrent operations - if time allows
-  We add the possibility of running independent operations concurrently,
-  such as reconciling two different columns in parallel. The workflow
-  5 existing support 6
-  representation should also make it possible to execute different operations on disjoint subsets of rows, but this is likely to be harder to
-  expose to the user.
-\item
-  Partial computations - if time allows
-  We return the control to the user before the full computation of longrunning operations terminates. For instance, when reconciling a column, the user can start inspecting the first few reconciliation results
-  immediately. They can perform other operations while reconciliation
-  is progressing. These other operations are executed immediately even
-  if they depend on the reconciliation results. This relies on the streaming capabilities of the underlying execution backend.
-\item
-  Multi-user support - if time allows
-  We add a notion of a ``user'' to keep track of the author of each change
-  and make necessary adjustments to the interface and server to let multiple users work on the same project seamlessly
+  A contributor guide of how to create workflows and submit them to the tutorial area of Neuroconductor (https://neuroconductor.org/tutorials).
 \end{enumerate}
 
-5 existing support
-OpenRefine has been supported in 2018 by a 100,000 USD grant from the
-Google News Initiative.6 These funds have been fully used for contract work
-by the core team in 2018. OpenRefine development is currently carried out
-on a voluntary basis.
-The research which designed the new architecture for OpenRefine {[}20{]}
-was carried out by Antonin Delpeuch as part of his DPhil at the University
-of Oxford, which is supported by the Engineering and Physical Sciences
-Research Council in the United Kingdom.
+The last point is different than vignettes in a subtle way. As we require all vignettes in Neuroconductor to be built on Travis CI or Appveyor, the data must be accessible programmatically, enclosed in the package, or use data from other packages. Package maintainers and developers may make full pipelines or example analyses that may be too computation-heavy for vignettes, interact with data sources that are not open, or use many packages that are not desirable dependencies for that package. The tutorial area is for these analyses, but it is currently unclear how to create or submit these, thus we need a contributor guide.
+
+\hypertarget{adding-new-packages}{%
+\subsection{Adding new packages}\label{adding-new-packages}}
+
+There are a number of packages that exist in R for imaging, but are only hosted on GitHub or both GitHub/CRAN. We reach out to these authors whenever we find those packages, but the effort is not always formalized. Thus, we use R Documetation (https://www.rdocumentation.org/), which aggregates packages from all major R repositories to identify packages that are imaging-related and reach out to maintainers. Along with the every-other-month call above, we believe these steps will increase the number (and hopefully the diversity) of developers and the number of contributions of developers. We will count the number of package updates in our backend.
+
+\hypertarget{refactor-the-neuroconductor-framework}{%
+\section{Refactor the Neuroconductor framework}\label{refactor-the-neuroconductor-framework}}
+
+\hypertarget{portability-of-neuroconductor}{%
+\subsection{Portability of Neuroconductor}\label{portability-of-neuroconductor}}
+
+Though most of the checking of packages is done on cloud-based continuous integration services, the backend is not in a true cloud platform, therefore not as portable as we would like. Currently, the Neuroconductor backend is hosted on a server at Johns Hopkins University with Drupal, PHP, and Centos 6. Over time, we have upgraded the backend to new operating systems, Drupal and PHP versions, and added additional third-party software to the server. Though this has worked for our current needs, we wish to build the backend on a cloud-based server, likely Amazon Web Services (AWS).
+
+The backend code is open, located at https://github.com/adigherman/neuroconductor. To address the portability of the system, we will create a custom AWS image that can be used to spool up a backend. This image will be versioned and backed up. Thus, if we wish to create another centralized platform for R packages (such as for wearable devices), this should be possible without much work.
+
+\hypertarget{ease-of-use-of-neuroconductor}{%
+\subsection{Ease of Use of Neuroconductor}\label{ease-of-use-of-neuroconductor}}
+
+We will also create a series of Docker images that have a large percentage of the Neuroconductor packages installed, including open-source third party medical imaging software such as AFNI and ANTs (Cox 1996; Avants, Tustison, and Song 2009) and other-licensed software, such as FSL ({\textbf{???}}). These images will increase the ease of use for a number of users, especially those on Windows, as many imaging software packages may not work on Windows (though almost all R packages should). An example use case is providing these Docker images for students in our ``Neurohacking in R'' course (https://www.coursera.org/learn/neurohacking), which currently provides a static virtual machine for use.
+
+\hypertarget{scaling-neuroconductor}{%
+\subsection{Scaling Neuroconductor}\label{scaling-neuroconductor}}
+
+Though Neuroconductor can handle the 97 packages, we wish to grow the community and number of packages. Whenever a new package is submitted, that package must be checked, along with any packages that depend on that package. That creates a large number of continuous integration (CI) jobs. Thus, increasing the number of packages will require either a) more concurrent jobs on cloud systems, or b) the setup of servers for our needs. Now, we believe the CI systems we employ can handle our needs, but we need to expand above the free, single-user plans, while keeping the dependency structure bookkeeping on our server side.
+
+\hypertarget{work-plan}{%
+\section{Work plan}\label{work-plan}}
+
+The first objective to improve stability of Neuroconductor packages, John Muschelli is best placed to do this as a developer of R packages for over 10 years and contributor to many Neuroconductor packages already.
+
+The second objective, to grow the contributor community, will be tackled by
+John Muschelli, Brian Caffo, and Ciprian Crainiceanu. Ciprian and Brian are best placed to grow the community due to their large networks in the statistical and imaging communities. Each has also organized meetings of many different parties, such as full conferences (ENAR - https://enar.org/).
+
+The third objective, to scale the Neuroconductor platform, will be handled by Adrian (Adi) Gherman. As the main developer on the Neuroconductor backend, Adi is in a good position to implement the changes. He has experience with Drupal, PHP, and Docker, including carrying out large changes to the Neuroconductor system.
+
+\hypertarget{improve-stability}{%
+\subsection{Improve Stability}\label{improve-stability}}
+
+The timescale is given on the assumption of John Muschelli working part
+time on this goal (0.35 full time equivalent). Our strategy to improve the stability of current packages is as follows:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  For the 54 with insufficient code coverages, make pull requests to the packages (approximately 10 per month) - 6 months.\\
+\item
+  Write tutorials for prospective contributors/developers on increasing code coverage and improved submissions - 2 months
+\item
+  Improve the existing user documentation on https://neuroconductor.org/ - 3 months
+\end{enumerate}
+
+\hypertarget{growing-the-contributor-community-1}{%
+\subsection{Growing the contributor community}\label{growing-the-contributor-community-1}}
+
+The timescale is given on the assumption of Ciprian Crainiceanu and Brian Caffo working part time on this goal (0.1 full time equivalent).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Set up a conference call once every 2 months - 1 month
+\item
+  Reach out of R-ladies Baltimore and other R-ladies group to discuss Neuroconductor to increase diversity in the user base - 2 months
+\item
+  Organize sessions related to Neuroconductor and open source software at imaging and statistics conferences - 1 month
+\item
+  Create a survery for developers to get more detailed information, such as identified sex, race, age, and other factors such as education attained and target analysis diseases - 2 months
+\end{enumerate}
+
+\hypertarget{refactor-the-neuroconductor-framework-1}{%
+\subsection{Refactor the Neuroconductor framework}\label{refactor-the-neuroconductor-framework-1}}
+
+The timescale is given on the assumption of Adrian Gherman working part
+time on this goal (0.5 full time equivalent).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Setting up AWS systems and testing - 1 month
+\item
+  Upgrading the Neuroconductor system to new OS and most up-to-date Drupal/PHP/Security - 2 months
+\item
+  Creating Docker images - 2 months
+\item
+  Implements new checks for code coverage and vignettes - 2 months
+\end{enumerate}
+
+\hypertarget{potential-areas-for-growth}{%
+\section{Potential areas for growth}\label{potential-areas-for-growth}}
+
+Though we wish to stabilize the Neuroconductor system, we wish to integrate analyses of imaging from Neuroconductor and ``omics'' from Bioconductor. This integration is challenging due to the size of the data and heterogeneity of the sources, amongst many other reasons. For a review, see Antonelli et al. (2019). For example, the \texttt{limmi} package (https://github.com/muschellij2/limmi) is an attempt to coerce functional magnetic resonance imaging into a testing framework that both works with \texttt{limma} package (Ritchie et al. 2015) and into the \texttt{SummarizedExperiment} format, which both are fundamental elements from Bioconductor (Huber et al. 2015).
+
+\hypertarget{existing-support}{%
+\section{Existing support}\label{existing-support}}
+
+We are currently applying for AWS credits in addition to the funding for computing here. Neuroconductor has been supported by General Funds from the Biostatistics Department at Johns Hopkins Bloomberg School of Public Health. NIH Grants XXX currently have a small amount of funding to support development of packages for the system, which have been used for package and backend development.
 
 \hypertarget{references}{%
 \section*{References}\label{references}}
@@ -287,8 +254,59 @@ Research Council in the United Kingdom.
 
 \hypertarget{refs}{}
 \begin{cslreferences}
+\leavevmode\hypertarget{ref-antonelli2019integrating}{}%
+Antonelli, Laura, Mario Rosario Guarracino, Lucia Maddalena, and Mara Sangiovanni. 2019. ``Integrating Imaging and Omics Data: A Review.'' \emph{Biomedical Signal Processing and Control} 52: 264--80.
+
+\leavevmode\hypertarget{ref-avants2009advanced}{}%
+Avants, Brian B, Nick Tustison, and Gang Song. 2009. ``Advanced Normalization Tools (ANTS).'' \emph{Insight J} 2: 1--35.
+
+\leavevmode\hypertarget{ref-afni}{}%
+Cox, Robert W. 1996. ``AFNI: Software for Analysis and Visualization of Functional Magnetic Resonance Neuroimages.'' \emph{Computers and Biomedical Research} 29 (3): 162--73.
+
+\leavevmode\hypertarget{ref-ding2019improved}{}%
+Ding, T, AD Cohen, EE O'Connor, HT Karim, A Crainiceanu, J Muschelli, O Lopez, et al. 2019. ``An Improved Algorithm of White Matter Hyperintensity Detection in Elderly Adults.'' \emph{NeuroImage: Clinical}, 102151.
+
+\leavevmode\hypertarget{ref-covr}{}%
+Hester, Jim. 2019. \emph{covr: Test Coverage for Packages}. \url{https://CRAN.R-project.org/package=covr}.
+
 \leavevmode\hypertarget{ref-bioconductor}{}%
-Huber, W., Carey, V.J., Gentleman, R., Anders, S., Carlson, M., Carvalho, B.S., Bravo, H.C., Davis, S., Gatto, L., Girke, T., Gottardo, R., Hahne, F., Hansen, K.D., Irizarry, R.A., Lawrence, M., Love, M.I., MacDonald, J., Obenchain, V., Ole's, A.K., Pag`es, H., Reyes, A., Shannon, P., Smyth, G.K., Tenenbaum, D., Waldron, L., Morgan, M., 2015. Orchestrating high-throughput genomic analysis with Bioconductor. Nature Methods 12, 115--121.
+Huber, W., V. J. Carey, R. Gentleman, S. Anders, M. Carlson, B. S. Carvalho, H. C. Bravo, et al. 2015. ``Orchestrating High-Throughput Genomic Analysis with Bioconductor.'' \emph{Nature Methods} 12 (2): 115--21. \url{http://www.nature.com/nmeth/journal/v12/n2/full/nmeth.3252.html}.
+
+\leavevmode\hypertarget{ref-maag2018gganatogram}{}%
+Maag, Jesper LV. 2018. ``gganatogram: An R Package for Modular Visualisation of Anatograms and Tissues Based on ggplot2.'' \emph{F1000Research} 7.
+
+\leavevmode\hypertarget{ref-mowinckel2019visualisation}{}%
+Mowinckel, Athanasia M, and Didac Vidal-Piñeiro. 2019. ``Visualisation of Brain Statistics with R-Packages Ggseg and Ggseg3d.'' \emph{arXiv Preprint arXiv:1912.08200}.
+
+\leavevmode\hypertarget{ref-neuroconductor}{}%
+Muschelli, John, Adrian Gherman, Jean-Philippe Fortin, Brian Avants, Brandon Whitcher, Jonathan D Clayden, Brian S Caffo, and Ciprian M Crainiceanu. 2018. ``Neuroconductor: An R Platform for Medical Imaging Analysis.'' \emph{Biostatistics}, kxx068. \url{https://doi.org/10.1093/biostatistics/kxx068}.
+
+\leavevmode\hypertarget{ref-polzehlmagnetic}{}%
+Polzehl, Jörg, and Karsten Tabelow. n.d. ``Magnetic Resonance Brain Imaging.'' Springer.
+
+\leavevmode\hypertarget{ref-limma}{}%
+Ritchie, Matthew E, Belinda Phipson, Di Wu, Yifang Hu, Charity W Law, Wei Shi, and Gordon K Smyth. 2015. ``limma Powers Differential Expression Analyses for RNA-Sequencing and Microarray Studies.'' \emph{Nucleic Acids Research} 43 (7): e47. \url{https://doi.org/10.1093/nar/gkv007}.
+
+\leavevmode\hypertarget{ref-shinohara2014statistical}{}%
+Shinohara, Russell T, Elizabeth M Sweeney, Jeff Goldsmith, Navid Shiee, Farrah J Mateen, Peter A Calabresi, Samson Jarso, et al. 2014. ``Statistical Normalization Techniques for Magnetic Resonance Imaging.'' \emph{NeuroImage: Clinical} 6: 9--19.
+
+\leavevmode\hypertarget{ref-shrivastav2018classification}{}%
+Shrivastav, Kumar Dron, Ankan Mukherjee Das, Harpreet Singh, Priya Ranjan, and Rajiv Janardhanan. 2018. ``Classification of Colposcopic Cervigrams Using EMD in R.'' In \emph{International Symposium on Signal Processing and Intelligent Recognition Systems}, 298--308. Springer.
+
+\leavevmode\hypertarget{ref-sweeney2013oasis}{}%
+Sweeney, Elizabeth M, Russell T Shinohara, Navid Shiee, Farrah J Mateen, Avni A Chudgar, Jennifer L Cuzzocreo, Peter A Calabresi, Dzung L Pham, Daniel S Reich, and Ciprian M Crainiceanu. 2013. ``OASIS Is Automated Statistical Inference for Segmentation, with Applications to Multiple Sclerosis Lesion Segmentation in MRI.'' \emph{NeuroImage: Clinical} 2: 402--13.
+
+\leavevmode\hypertarget{ref-sweeney2013automatic}{}%
+Sweeney, EM, RT Shinohara, CD Shea, DS Reich, and Ciprian M Crainiceanu. 2013. ``Automatic Lesion Incidence Estimation and Detection in Multiple Sclerosis Using Multisequence Longitudinal MRI.'' \emph{American Journal of Neuroradiology} 34 (1): 68--73.
+
+\leavevmode\hypertarget{ref-tustison2019longitudinal}{}%
+Tustison, Nicholas J, Andrew J Holbrook, Brian B Avants, Jared M Roberts, Philip A Cook, Zachariah M Reagh, Jeffrey T Duda, et al. 2019. ``Longitudinal Mapping of Cortical Thickness Measurements: An Alzheimer's Disease Neuroimaging Initiative-Based Evaluation Study.'' \emph{Journal of Alzheimer's Disease} 71 (1): 165--83.
+
+\leavevmode\hypertarget{ref-valcarcel2018dual}{}%
+Valcarcel, Alessandra M, Kristin A Linn, Fariha Khalid, Simon N Vandekar, Shahamat Tauhid, Theodore D Satterthwaite, John Muschelli, Melissa Lynne Martin, Rohit Bakshi, and Russell T Shinohara. 2018. ``A Dual Modeling Approach to Automatic Segmentation of Cerebral T2 Hyperintensities and T1 Black Holes in Multiple Sclerosis.'' \emph{NeuroImage: Clinical} 20: 1211--21.
+
+\leavevmode\hypertarget{ref-vandekar2019robust}{}%
+Vandekar, Simon N, Theodore D Satterthwaite, Cedric H Xia, Azeez Adebimpe, Kosha Ruparel, Ruben C Gur, Raquel E Gur, and Russell T Shinohara. 2019. ``Robust Spatial Extent Inference with a Semiparametric Bootstrap Joint Inference Procedure.'' \emph{Biometrics} 75 (4): 1145--55.
 \end{cslreferences}
 
 
