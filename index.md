@@ -79,6 +79,9 @@ The last point is different than vignettes in a subtle way. As we require all vi
 
 There are a number of packages that exist in R for imaging, but are only hosted on GitHub or both GitHub/CRAN.  We reach out to these authors whenever we find those packages, but the effort is not always formalized.  Thus, we use R Documetation (https://www.rdocumentation.org/), which aggregates packages from all major R repositories to identify packages that are imaging-related and reach out to maintainers.  Along with the every-other-month call above, we believe these steps will increase the number (and hopefully the diversity) of developers and the number of contributions of developers.  We will count the number of package updates in our backend.
 
+## Hands on tutorial
+
+Either on site in Baltimore, at a remote site, or at an imaging conference, one in-person, hands-on tutorial will be given by John Muschelli.  This tutorial will be used to create an online course that will be either hosted on LeanPub or Coursera. 
 
 # Refactor the Neuroconductor framework
 
@@ -94,7 +97,6 @@ We will also create a series of Docker images that have a large percentage of th
 ## Scaling Neuroconductor
 
 Though Neuroconductor can handle the 97 packages, we wish to grow the community and number of packages.  Whenever a new package is submitted, that package must be checked, along with any packages that depend on that package.  That creates a large number of continuous integration (CI) jobs.  Thus, increasing the number of packages will require either a) more concurrent jobs on cloud systems, or b) the setup of servers for our needs.  Now, we believe the CI systems we employ can handle our needs, but we need to expand above the free, single-user plans, while keeping the dependency structure bookkeeping on our server side.  
-
 
 
 # Work plan
@@ -119,11 +121,12 @@ time on this goal (0.35 full time equivalent).  Our strategy to improve the stab
 
 ## Growing the contributor community
 
-The timescale is given on the assumption of Ciprian Crainiceanu and Brian Caffo working part time on this goal (0.1 full time equivalent).  
+The timescale is given on the assumption of Ciprian Crainiceanu and Brian Caffo working part time on this goal (0.05 full time equivalent) and above time from John Muschelli.  
 
 1. Set up a conference call once every 2 months - 1 month
 2. Reach out of R-ladies Baltimore and other R-ladies group to discuss Neuroconductor to increase diversity in the user base - 2 months
 3. Organize sessions related to Neuroconductor and open source software at imaging and statistics conferences - 1 month
+4. Provide one hands-on tutorial - 3 months
 4. Create a survery for developers to get more detailed information, such as identified sex, race, age, and other factors such as education attained and target analysis diseases - 2 months
 
 
@@ -145,6 +148,8 @@ Though we wish to stabilize the Neuroconductor system, we wish to integrate anal
 # Existing support
 
 We are currently applying for AWS credits in addition to the funding for computing here.  Neuroconductor has been supported by General Funds from the Biostatistics Department at Johns Hopkins Bloomberg School of Public Health.  NIH Grants XXX currently have a small amount of funding to support development of packages for the system, which have been used for package and backend development.
+
+This Grant was generated with all materials at https://github.com/muschellij2/CZI and can be downloaded from https://johnmuschelli.com/CZI/index.pdf. 
 
 References {#references .unnumbered}
 ==========
