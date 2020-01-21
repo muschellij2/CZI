@@ -10,7 +10,7 @@
 
 
 
-<meta name="date" content="2020-01-20" />
+<meta name="date" content="2020-01-21" />
 
 <title>Increasing the Impact of Neuroconductor</title>
 
@@ -386,10 +386,10 @@ summary {
 
 
 <h1 class="title toc-ignore">Increasing the Impact of Neuroconductor</h1>
-<h4 class="date">2020-01-20</h4>
+<h4 class="date">2020-01-21</h4>
 <div class="abstract">
 <p class="abstract">Abstract</p>
-<p>Over the past 5 years, Neuroconductor has centralized the packages of medical image analysis in the R community. As a repository of a wide variety of analyses of diseases such as Alzheimer’s disease <span class="citation">(Ding et al. 2019)</span> and multiple sclerosis<span class="citation">(Valcarcel et al. 2018; E. Sweeney et al. 2013; E. M. Sweeney et al. 2013)</span>, image processing and prediction <span class="citation">(Tustison et al. 2019; Shrivastav et al. 2018; Polzehl and Tabelow, n.d.; Shinohara et al. 2014)</span>, image visualization <span class="citation">(Maag 2018; Mowinckel and Vidal-Piñeiro 2019)</span> and state-of-the-art statistical analyses <span class="citation">(Vandekar et al. 2019)</span>. For Neurocondutorto succeeed for the next 5 years and beyond, we need to grow its contributor community, and improve the stability, usability, and portability of the platform.</p>
+<p>Over the past 5 years, Neuroconductor has centralized the packages of medical image analysis in the R community. As a repository of a wide variety of analyses of diseases such as Alzheimer’s disease <span class="citation">(Ding et al. 2019)</span> and multiple sclerosis<span class="citation">(Valcarcel et al. 2018; E. Sweeney et al. 2013; E. M. Sweeney et al. 2013)</span>, image processing and prediction <span class="citation">(Tustison et al. 2019; Shrivastav et al. 2018; Polzehl and Tabelow, n.d.; Shinohara et al. 2014)</span>, image visualization <span class="citation">(Maag 2018; Mowinckel and Vidal-Piñeiro 2019)</span> and state-of-the-art statistical analyses <span class="citation">(Vandekar et al. 2019)</span>. For Neuroconductor to succeeed for the next 5 years and beyond, we need to grow its contributor community, and improve the stability, usability, and portability of the platform.</p>
 </div>
 
 </div>
@@ -397,34 +397,34 @@ summary {
 
 <div id="brief-description-of-neuroconductor" class="section level1">
 <h1>Brief Description of Neuroconductor</h1>
-<p>Neuroconductor is a platform for R package submission and repository of released packages. A user submits a package to Neuroconductor from a GitHub repository The backend of the platform then runs a set of checks, then clones the repository to the Neuroconductor GitHub repository, then checks the package on the continuous integration Travis CI (for Linux/OSX) and Appveyor (Windows). Any failures in this package checks will be reported back to the author (maintainer) of the packages about what failed and what changes need to be made. As all code is on GitHub, the Neuroconductor team will also send pull requests to fix the code in many cases. The built packages are then combined every few months as a release/snapshot of all the passing packages at that time.</p>
+<p>Neuroconductor is a platform for R package submission and repository of released packages. A user submits a package to Neuroconductor from a GitHub repository The backend of the platform then runs an initial set of sanity checks, clones the repository to the Neuroconductor GitHub repository, then checks the package on the continuous integration Travis CI (for Linux/OSX) and Appveyor (Windows). Any failures in this package checks will be reported back to the author (maintainer) of the package about what failed and what changes need to be made. As all code is on GitHub, the Neuroconductor team will also send pull requests to fix the code in many cases. The built packages are then combined every few months as a release/snapshot of all the passing packages at that time.</p>
 </div>
 <div id="goals" class="section level1">
 <h1>Goals</h1>
 <p>The main objectives of this proposal are:</p>
 <ol style="list-style-type: decimal">
-<li>improve the stability and usability of the current (N=97) packages in Neuroconductor.</li>
+<li>improve the stability and usability of the current (N=98) packages in Neuroconductor.</li>
 <li>increase the number of packages and community of Neuroconductor’s contributors and developers by reaching out to seasoned users and helping them get involved more closely in the project.</li>
 <li>refactor the core architecture of the Neuroconductor backend platform to handle more packages and incorporate user workflows.</li>
 </ol>
 <p>Our goals will be reached if:</p>
 <ol style="list-style-type: decimal">
-<li>Each package has a vignette (a tutorial/long-form documentation) and the all packages has a code coverage above 50% (currently 44% meet this criteria).</li>
-<li>We add at least 10 new packages over the course of the project and get contributions from 20 existing contributors (out of 26). Contributions will be defined as release updates to packages through developers GitHub repositories or submission additional packages to release.</li>
-<li>Scale the Neuroconductor framework to 200 packages (currently has 97) and be able to achieve monthly releases, including releases of Docker images.</li>
+<li>Each package has a vignette (a tutorial/long-form documentation) and all packages have a code coverage above 50% (currently 45% meet this criteria).</li>
+<li>We add at least 10 new packages over the course of the project and get contributions from 20 existing contributors (out of 26). Contributions will be defined as releasing updates to packages through developers GitHub repositories or submitting additional packages to the collection.</li>
+<li>Scale the Neuroconductor framework to 200 packages (currently has 98) and be able to achieve monthly releases, including releases of Docker images.</li>
 </ol>
 </div>
 <div id="improve-stability-of-neuroconductor-packages" class="section level1">
 <h1>Improve stability of Neuroconductor packages</h1>
 <p>One of the key metrics of package stability is code coverage, which we define as the proportion of the source code that is executed when running tests, examples, or vignettes (tutorials). The <code>covr</code> package <span class="citation">(Hester 2019)</span> has functions to report the coverage of a package, which can be reported using services such as CodeCov (<a href="https://codecov.io/" class="uri">https://codecov.io/</a>) or Coveralls (<a href="https://coveralls.io/" class="uri">https://coveralls.io/</a>), which is implemented in Neuroconductor.</p>
-<p>With 4 releases in the past year (2019), the project has proved its ability to deliver checks and updates to a large number of packages. The stability of those releases has grown over time, which is positive, but shows that improvements to the stability of the network of packages still need to be made.</p>
+<p>With 4 releases (<a href="https://neuroconductor.org/releases/" class="uri">https://neuroconductor.org/releases/</a>) in the past year (2019), the project has proved its ability to deliver checks and updates to a large number of packages. The stability of those releases has grown over time, which is positive, but shows that improvements to the stability of the network of packages still need to be made.</p>
 <p>John Muschelli will send a series of pull requests to packages that do not have code coverage over 50%. These pull requests will try to increase the code coverage to necessary level, but moreso provide the groundwork for maintainers to create their own tests (especially those for edge cases). Additionally, these pull requests will create vignettes of how to use the package if none exist. These vignettes will have intentional errors and breaks so that developers must change these before submitting to Neuroconductor. Documentation on increasing code coverage will be created to more formalize this process and help developers (see the next section).</p>
 <p>By the end of the funding year, all current packages must meet these requirements to stay within the Neuroconductor repository.</p>
 </div>
 <div id="growing-the-contributor-community" class="section level1">
 <h1>Growing the contributor community</h1>
-<p>The Neuroconductor platform (<a href="https://neuroconductor.org/" class="uri">https://neuroconductor.org/</a>) <span class="citation">(Muschelli et al. 2018)</span> was started in 2014 at Johns Hopkins to centralize medical image analysis R packages, similar to the effort of Bioconductor <span class="citation">(Huber et al. 2015)</span>. One of the main strengths of Neuroconductor is the developer community, which involves 26 maintainers residing in 5 countries, which contribute to, use, and advertise for Neuroconductor. Our plan to strengthen the community is to host a conference call/meetup twice a year to discuss developments with the maintainers, including requesting feedback for ways to improve the platform, the submission process, feature requests, or increasing user/developer engagement. With respec to users, we have had users in over 48 countries download packages from Neuroconductor.</p>
-<p>Comparatively, the project development team is small and but also less diverse. The team is currently all white males, 2 US-born and 2 Romanian-born. Moreover, one of the developers (John Muschelli) contributes a total of 47 packages to the project. Many of these packages (18) are data packages, which include image templates or example data sets for analysis, requiring little maintenance. We would like to increase the number of developers, especially those from different countries, races, and sex. Currently, out of the 26 maintainers, only 6 are female (23%).</p>
+<p>The Neuroconductor platform (<a href="https://neuroconductor.org/" class="uri">https://neuroconductor.org/</a>) <span class="citation">(Muschelli et al. 2018)</span> was started in 2014 at Johns Hopkins to centralize medical image analysis R packages, similar to the effort of Bioconductor <span class="citation">(Huber et al. 2015)</span>. One of the main strengths of Neuroconductor is the developer community, which involves 26 maintainers residing in 5 countries, which contribute to, use, and advertise for Neuroconductor. Our plan to strengthen the community is to host a conference call/meetup twice a year to discuss developments with the maintainers, including requesting feedback for ways to improve the platform, the submission process, feature requests, or increasing user/developer engagement. With respect to users, we have had users in over 48 countries download packages from Neuroconductor.</p>
+<p>Comparatively, the project development team is small and but also less diverse. The team is currently all white males, 2 US-born and 2 Romanian-born. Moreover, one of the developers (John Muschelli) contributes a total of 48 packages to the project. Many of these packages (18) are data packages, which include image templates or example data sets for analysis, requiring little maintenance. We would like to increase the number of developers, especially those from different countries, races, and sex. Currently, out of the 26 maintainers, only 6 are female (23%).</p>
 <p>We propose to take the following steps to make it easier for new developers and users to contribute to the project.</p>
 <div id="developing-a-code-coverage-user-guide" class="section level2">
 <h2>Developing a code coverage user guide</h2>
@@ -450,21 +450,22 @@ summary {
 <h1>Refactor the Neuroconductor framework</h1>
 <div id="portability-of-neuroconductor" class="section level2">
 <h2>Portability of Neuroconductor</h2>
-<p>Though most of the checking of packages is done on cloud-based continuous integration services, the backend is not in a true cloud platform, therefore not as portable as we would like. Currently, the Neuroconductor backend is hosted on a server at Johns Hopkins University with Drupal, PHP, and Centos 6. Over time, we have upgraded the backend to new operating systems, Drupal and PHP versions, and added additional third-party software to the server. Though this has worked for our current needs, we wish to build the backend on a cloud-based server, likely Amazon Web Services (AWS).</p>
-<p>The backend code is open, located at <a href="https://github.com/adigherman/neuroconductor" class="uri">https://github.com/adigherman/neuroconductor</a>. To address the portability of the system, we will create a custom AWS image that can be used to spool up a backend. This image will be versioned and backed up. Thus, if we wish to create another centralized platform for R packages (such as for wearable devices), this should be possible without much work.</p>
+<p>Though most of the checking of packages is done on cloud-based continuous integration services, the backend is not in a true cloud platform, therefore not as portable as we would like. Currently, the Neuroconductor backend is hosted on a RedHat 6.10 server at Johns Hopkins University with the backend consisting of Drupal 8 CMS framework that relies on PHP 5.3, MySQL 14.14 and Apache 2.4. Over time, we have upgraded the backend to new operating systems, Drupal and PHP versions, and added additional third-party software to the server. Though this has worked for our current needs, we wish to migrate the backend to a cloud-based server, likely Amazon Web Services (AWS).</p>
+<!-- The backend code is open, located at https://github.com/adigherman/neuroconductor.   -->
+<p>To address the portability of the system, we will create a custom AWS image that can be used to spool up a backend. This image will be versioned and backed up. Thus, if we wish to create another centralized platform for R packages (such as for wearable devices), this should be possible without much work.</p>
 </div>
 <div id="ease-of-use-of-neuroconductor" class="section level2">
 <h2>Ease of Use of Neuroconductor</h2>
-<p>We will also create a series of Docker images that have a large percentage of the Neuroconductor packages installed, including open-source third party medical imaging software such as AFNI and ANTs <span class="citation">(Cox 1996; Avants, Tustison, and Song 2009)</span> and other-licensed software, such as FSL <span class="citation">(Jenkinson et al. 2012)</span>. These images will increase the ease of use for a number of users, especially those on Windows, as many imaging software packages may not work on Windows (though almost all R packages should). An example use case is providing these Docker images for students in our “Neurohacking in R” course (<a href="https://www.coursera.org/learn/neurohacking" class="uri">https://www.coursera.org/learn/neurohacking</a>), which currently provides a static virtual machine for use.</p>
+<p>We will also create a series of Docker images that have a large percentage of the Neuroconductor packages installed, including open-source third party medical imaging software such as AFNI and ANTs <span class="citation">(Cox 1996; Avants, Tustison, and Song 2009)</span> and other-licensed software, such as FSL <span class="citation">(Jenkinson et al. 2012)</span>. These images will increase the ease of use for a number of users, especially those on Windows, as many imaging software packages may not work on Windows (though almost all R packages should). An example use case is providing these Docker images for students in our “Neurohacking in R” course (<a href="https://www.coursera.org/learn/neurohacking" class="uri">https://www.coursera.org/learn/neurohacking</a>), which currently provides a downloadable virtual machine image for use.</p>
 </div>
 <div id="scaling-neuroconductor" class="section level2">
 <h2>Scaling Neuroconductor</h2>
-<p>Though Neuroconductor can handle the 97 packages, we wish to grow the community and number of packages. Whenever a new package is submitted, that package must be checked, along with any packages that depend on that package. That creates a large number of continuous integration (CI) jobs. Thus, increasing the number of packages will require either a) more concurrent jobs on cloud systems, or b) the setup of servers for our needs. Now, we believe the CI systems we employ can handle our needs, but we need to expand above the free, single-user plans, while keeping the dependency structure bookkeeping on our server side.</p>
+<p>Though Neuroconductor can handle the 98 packages, we wish to grow the community and number of packages. Whenever a new package is submitted, that package must be checked, along with any packages that depend on that package. That creates a large number of continuous integration (CI) jobs. Thus, increasing the number of packages will require either a) more concurrent jobs on cloud systems, or b) the setup of servers for our needs. Now, we believe the CI systems we employ can handle our needs, but we need to expand above the free, single-user plans, while keeping the dependency structure bookkeeping on our server side.</p>
 </div>
 </div>
 <div id="work-plan" class="section level1">
 <h1>Work plan</h1>
-<p>The first objective to improve stability of Neuroconductor packages, John Muschelli is best placed to do this as a developer of R packages for over 10 years and contributor to many Neuroconductor packages already.</p>
+<p>The first objective is to improve stability of Neuroconductor packages. John Muschelli is best placed to do this as a developer of R packages for over 10 years and contributor to many Neuroconductor packages already.</p>
 <p>The second objective, to grow the contributor community, will be tackled by John Muschelli, Brian Caffo, and Ciprian Crainiceanu. Ciprian and Brian are best placed to grow the community due to their large networks in the statistical and imaging communities. Each has also organized meetings of many different parties, such as full conferences (ENAR - <a href="https://enar.org/" class="uri">https://enar.org/</a>).</p>
 <p>The third objective, to scale the Neuroconductor platform, will be handled by Adrian (Adi) Gherman. As the main developer on the Neuroconductor backend, Adi is in a good position to implement the changes. He has experience with Drupal, PHP, and Docker, including carrying out large changes to the Neuroconductor system.</p>
 <div id="improve-stability" class="section level2">
@@ -482,7 +483,7 @@ summary {
 <p>The timescale is given on the assumption of Ciprian Crainiceanu and Brian Caffo working part time on this goal (0.05 full time equivalent) and above time from John Muschelli.</p>
 <ol style="list-style-type: decimal">
 <li>Set up a conference call once every 2 months - 1 month</li>
-<li>Reach out of R-ladies Baltimore and other R-ladies group to discuss Neuroconductor to increase diversity in the user base - 2 months</li>
+<li>Reach out to R-ladies Baltimore and other R-ladies group to discuss Neuroconductor to increase diversity in the user base - 2 months</li>
 <li>Organize sessions related to Neuroconductor and open source software at imaging and statistics conferences - 1 month</li>
 <li>Provide one hands-on tutorial - 3 months</li>
 <li>Create a survery for developers to get more detailed information, such as identified sex, race, age, and other factors such as education attained and target analysis diseases - 2 months</li>
@@ -493,8 +494,8 @@ summary {
 <p>The timescale is given on the assumption of Adrian Gherman working part time on this goal (0.5 full time equivalent).</p>
 <ol style="list-style-type: decimal">
 <li>Setting up AWS systems and testing - 1 month</li>
-<li>Upgrading the Neuroconductor system to new OS and most up-to-date Drupal/PHP/Security - 2 months</li>
-<li>Creating Docker images - 2 months</li>
+<li>Upgrading the Neuroconductor system to a newer OS version and most up-to-date Drupal/PHP/MySQL/Security - 2 months</li>
+<li>Automating the creation of Docker images - 2 months</li>
 <li>Implements new checks for code coverage and vignettes - 2 months</li>
 </ol>
 </div>

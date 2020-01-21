@@ -35,13 +35,8 @@ The main objectives of this proposal are:
 
 Our goals will be reached if:
 
-<<<<<<< HEAD
-1. Each package has a vignette (a tutorial/long-form documentation) and the all packages has a code coverage above 50% (currently 45% meet this criteria).
-2. We add at least 10 new packages over the course of the project and get contributions from 20 existing contributors (out of 26).  Contributions will be defined as release updates to packages through developers GitHub repositories or submission additional packages to release. 
-=======
 1. Each package has a vignette (a tutorial/long-form documentation) and all packages have a code coverage above 50% (currently 45% meet this criteria).
 2. We add at least 10 new packages over the course of the project and get contributions from 20 existing contributors (out of 26).  Contributions will be defined as releasing updates to packages through developers GitHub repositories or submitting additional packages to the collection. 
->>>>>>> 769319696f6c1bb558a5b62a86facdb93dba3cd2
 3. Scale the Neuroconductor framework to 200 packages (currently has 98) and be able to achieve monthly releases, including releases of Docker images.
 
 
