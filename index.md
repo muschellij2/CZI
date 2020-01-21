@@ -3,7 +3,7 @@ title: Increasing the Impact of Neuroconductor
 abstract: |
   Over the past 5 years, Neuroconductor has centralized the packages of medical image analysis in the R community.  As a repository of a wide variety of analyses of diseases such as Alzheimer's disease [@ding2019improved] and multiple sclerosis[@valcarcel2018dual; @sweeney2013automatic; @sweeney2013oasis], image processing and prediction [@tustison2019longitudinal; @shrivastav2018classification; @polzehlmagnetic; @shinohara2014statistical],  image visualization [@maag2018gganatogram; @mowinckel2019visualisation] and state-of-the-art statistical analyses [@vandekar2019robust].  For Neurocondutorto succeeed for the next 5 years and beyond, we need to grow its contributor community, and improve the stability, usability, and portability of the platform.
 journal: ""
-date: "2020-01-20"
+date: "2020-01-21"
 bibliography: refs.bib
 header-includes:
    - \usepackage[margin=2.5cm]{geometry}
@@ -29,22 +29,22 @@ Neuroconductor is a platform for R package submission and repository of released
 
 The main objectives of this proposal are:
 
-1. improve the stability and usability of the current (N=97) packages in Neuroconductor.
+1. improve the stability and usability of the current (N=98) packages in Neuroconductor.
 2. increase the number of packages and community of Neuroconductor's contributors and developers by reaching out to seasoned users and helping them get involved more closely in the project.
 3. refactor the core architecture of the Neuroconductor backend platform to handle more packages and incorporate user workflows.  
 
 Our goals will be reached if:
 
-1. Each package has a vignette (a tutorial/long-form documentation) and the all packages has a code coverage above 50% (currently 44% meet this criteria).
+1. Each package has a vignette (a tutorial/long-form documentation) and the all packages has a code coverage above 50% (currently 45% meet this criteria).
 2. We add at least 10 new packages over the course of the project and get contributions from 20 existing contributors (out of 26).  Contributions will be defined as release updates to packages through developers GitHub repositories or submission additional packages to release. 
-3. Scale the Neuroconductor framework to 200 packages (currently has 97) and be able to achieve monthly releases, including releases of Docker images.
+3. Scale the Neuroconductor framework to 200 packages (currently has 98) and be able to achieve monthly releases, including releases of Docker images.
 
 
 # Improve stability of Neuroconductor packages
 
 One of the key metrics of package stability is code coverage, which we define as the proportion of the source code that is executed when running tests, examples, or vignettes (tutorials).  The `covr` package [@covr] has functions to report the coverage of a package, which can be reported using services such as CodeCov (https://codecov.io/) or Coveralls (https://coveralls.io/), which is implemented in Neuroconductor. 
 
-With 4 releases in the past year (2019), the project has proved its ability to deliver checks and updates to a large number of packages.  The stability of those releases has grown over time, which is positive, but shows that improvements to the stability of the network of packages still need to be made.
+With 4 releases (https://neuroconductor.org/releases/) in the past year (2019), the project has proved its ability to deliver checks and updates to a large number of packages.  The stability of those releases has grown over time, which is positive, but shows that improvements to the stability of the network of packages still need to be made.
 
 John Muschelli will send a series of pull requests to packages that do not have code coverage over 50%.  These pull requests will try to increase the code coverage to necessary level, but moreso provide the groundwork for maintainers to create their own tests (especially those for edge cases).  Additionally, these pull requests will create vignettes of how to use the package if none exist.  These vignettes will have intentional errors and breaks so that developers must change these before submitting to Neuroconductor.  Documentation on increasing code coverage will be created to more formalize this process and help developers (see the next section).  
 
@@ -58,7 +58,7 @@ The Neuroconductor platform (https://neuroconductor.org/) [@neuroconductor] was 
 
 
 
-Comparatively, the project development team is small and but also less diverse.  The team is currently all white males, 2 US-born and 2 Romanian-born.  Moreover, one of the developers (John Muschelli) contributes a total of 47 packages to the project.  Many of these packages (18) are data packages, which include image templates or example data sets for analysis, requiring little maintenance.  We would like to increase the number of developers, especially those from different countries, races, and sex.  Currently, out of the 26 maintainers, only 6 are female (23%).  
+Comparatively, the project development team is small and but also less diverse.  The team is currently all white males, 2 US-born and 2 Romanian-born.  Moreover, one of the developers (John Muschelli) contributes a total of 48 packages to the project.  Many of these packages (18) are data packages, which include image templates or example data sets for analysis, requiring little maintenance.  We would like to increase the number of developers, especially those from different countries, races, and sex.  Currently, out of the 26 maintainers, only 6 are female (23%).  
 
 We propose to take the following steps to make it easier for new developers and users to contribute to the project.
 
@@ -88,7 +88,9 @@ Either on site in Baltimore, at a remote site, or at an imaging conference, one 
 ## Portability of Neuroconductor 
 Though most of the checking of packages is done on cloud-based continuous integration services, the backend is not in a true cloud platform, therefore not as portable as we would like.  Currently, the Neuroconductor backend is hosted on a server at Johns Hopkins University with Drupal, PHP, and Centos 6.  Over time, we have upgraded the backend to new operating systems, Drupal and PHP versions, and added additional third-party software to the server.  Though this has worked for our current needs, we wish to build the backend on a cloud-based server, likely Amazon Web Services (AWS).
 
-The backend code is open, located at https://github.com/adigherman/neuroconductor.  To address the portability of the system, we will create a custom AWS image that can be used to spool up a backend. This image will be versioned and backed up.  Thus, if we wish to create another centralized platform for R packages (such as for wearable devices), this should be possible without much work.
+<!-- The backend code is open, located at https://github.com/adigherman/neuroconductor.   -->
+
+To address the portability of the system, we will create a custom AWS image that can be used to spool up a backend. This image will be versioned and backed up.  Thus, if we wish to create another centralized platform for R packages (such as for wearable devices), this should be possible without much work.
 
 ## Ease of Use of Neuroconductor
 
@@ -96,7 +98,7 @@ We will also create a series of Docker images that have a large percentage of th
 
 ## Scaling Neuroconductor
 
-Though Neuroconductor can handle the 97 packages, we wish to grow the community and number of packages.  Whenever a new package is submitted, that package must be checked, along with any packages that depend on that package.  That creates a large number of continuous integration (CI) jobs.  Thus, increasing the number of packages will require either a) more concurrent jobs on cloud systems, or b) the setup of servers for our needs.  Now, we believe the CI systems we employ can handle our needs, but we need to expand above the free, single-user plans, while keeping the dependency structure bookkeeping on our server side.  
+Though Neuroconductor can handle the 98 packages, we wish to grow the community and number of packages.  Whenever a new package is submitted, that package must be checked, along with any packages that depend on that package.  That creates a large number of continuous integration (CI) jobs.  Thus, increasing the number of packages will require either a) more concurrent jobs on cloud systems, or b) the setup of servers for our needs.  Now, we believe the CI systems we employ can handle our needs, but we need to expand above the free, single-user plans, while keeping the dependency structure bookkeeping on our server side.  
 
 
 # Work plan
