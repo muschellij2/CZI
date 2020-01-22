@@ -77,11 +77,11 @@ The last point is different than vignettes in a subtle way. As we require all vi
 
 ## Adding new packages
 
-There are a number of packages that exist in R for imaging, but are only hosted on GitHub or both GitHub/CRAN.  We reach out to these authors whenever we find those packages, but the effort is not always formalized.  Thus, we use R Documetation (https://www.rdocumentation.org/), which aggregates packages from all major R repositories to identify packages that are imaging-related and reach out to maintainers.  Along with the every-other-month call above, we believe these steps will increase the number (and hopefully the diversity) of developers and the number of contributions of developers.  We will count the number of package updates in our backend.
+There are a number of packages that exist in R for imaging, but are only hosted on GitHub or both GitHub/CRAN.  We reach out to these authors whenever we find those packages, but the effort is not always formalized.  Thus, we use R Documentation (https://www.rdocumentation.org/), which aggregates packages from all major R repositories to identify packages that are imaging-related and reach out to maintainers.  Along with the every-other-month call above, we believe these steps will increase the number (and hopefully the diversity) of developers and the number of contributions of developers.  We will count the number of package updates in our backend.
 
 ## Hands on tutorial
 
-Either on site in Baltimore, at a remote site, or at an imaging conference, one in-person, hands-on tutorial will be given by John Muschelli.  This tutorial will be used to create an online course that will be either hosted on LeanPub or Coursera. 
+Either on site in Baltimore, at a remote site, or at an imaging conference, one in-person, hands-on tutorial will be given by John Muschelli.  This tutorial will be used to create an online course that will be either hosted on Leanpub or Coursera. 
 
 # Refactor the Neuroconductor framework
 
@@ -129,7 +129,7 @@ The timescale is given on the assumption of Ciprian Crainiceanu and Brian Caffo 
 2. Reach out to R-ladies Baltimore and other R-ladies group to discuss Neuroconductor to increase diversity in the user base - 2 months
 3. Organize sessions related to Neuroconductor and open source software at imaging and statistics conferences - 1 month
 4. Provide one hands-on tutorial - 3 months
-4. Create a survery for developers to get more detailed information, such as identified sex, race, age, and other factors such as education attained and target analysis diseases - 2 months
+4. Create a survey for developers to get more detailed information, such as identified sex, race, age, and other factors such as education attained and target analysis diseases - 2 months
 
 
 ## Refactor the Neuroconductor framework
