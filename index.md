@@ -1,9 +1,9 @@
 ---
 title: Increasing the Impact of Neuroconductor
 abstract: |
-  Over the past 5 years, Neuroconductor has centralized the packages of medical image analysis in the R community.  As a repository of a wide variety of analyses of diseases such as Alzheimer's disease [@ding2019improved] and multiple sclerosis[@valcarcel2018dual; @sweeney2013automatic; @sweeney2013oasis], image processing and prediction [@tustison2019longitudinal; @shrivastav2018classification; @polzehlmagnetic; @shinohara2014statistical],  image visualization [@maag2018gganatogram; @mowinckel2019visualisation] and state-of-the-art statistical analyses [@vandekar2019robust].  For Neuroconductor to succeeed for the next 5 years and beyond, we need to grow its contributor community, and improve the stability, usability, and portability of the platform.
+  Over the past 5 years, Neuroconductor has centralized the packages of medical image analysis in the R community.  As a repository of a wide variety of analyses of diseases such as Alzheimer's disease [@ding2019improved] and multiple sclerosis[@valcarcel2018dual; @sweeney2013automatic; @sweeney2013oasis], image processing and prediction [@tustison2019longitudinal; @shrivastav2018classification; @polzehlmagnetic; @shinohara2014statistical],  image visualization [@maag2018gganatogram; @mowinckel2019visualisation] and state-of-the-art statistical analyses [@vandekar2019robust].  For Neuroconductor to succeed for the next 5 years and beyond, we need to grow its contributor community, and improve the stability, usability, and portability of the platform.
 journal: ""
-date: "2020-01-21"
+date: "2020-01-22"
 bibliography: refs.bib
 header-includes:
    - \usepackage[margin=2.5cm]{geometry}
