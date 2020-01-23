@@ -3,7 +3,7 @@ title: Increasing the Impact of Neuroconductor
 abstract: |
   Over the past 5 years, Neuroconductor has centralized the packages of medical image analysis in the R community.  As a repository of a wide variety of analyses of diseases such as Alzheimer's disease [@ding2019improved] and multiple sclerosis[@valcarcel2018dual; @sweeney2013automatic; @sweeney2013oasis], image processing and prediction [@tustison2019longitudinal; @shrivastav2018classification; @polzehlmagnetic; @shinohara2014statistical],  image visualization [@maag2018gganatogram; @mowinckel2019visualisation] and state-of-the-art statistical analyses [@vandekar2019robust].  For Neuroconductor to succeed for the next 5 years and beyond, we need to grow its contributor community, and improve the stability, usability, and portability of the platform.
 journal: ""
-date: "2020-01-22"
+date: "2020-01-23"
 bibliography: refs.bib
 header-includes:
    - \usepackage[margin=2.5cm]{geometry}
@@ -151,7 +151,8 @@ Though we wish to stabilize the Neuroconductor system, we wish to integrate anal
 The most similar project is Bioconductor (https://www.bioconductor.org/), which has 1823 packages related to bioinformatics.  The user base is much larger, and is the largest repository for R for omics research.  It is also been available since 2001 (more mature).  A whole set of dependencies in Neuroconductor will not be accepted to Bioconductor (or CRAN) due to its high build load, but is crucial to medical image analysis in R.
 
 In Python, NiPy (https://nipy.org/) is the most analogous to Neuroconductor, aggregating neuroimaging modules, which has 12 projects, with varying levels of maturity.  For example, NiPype (https://nipype.readthedocs.io/en/latest/) interfaces neuroimaging pipelines that has 132 authors and has been available since 2011.  Though most of the packages are related to neuroimaging, but many functions can be used for general image analysis.  MedPy (https://pypi.org/project/MedPy/) is also a module for medical imaging in python, which has 60,168 total downloads (730 monthly, https://pepy.tech/project/medpy).  
-
+# Changes in Metrics
+We have had the project up for more than 4 years, but we have not had formal releases until 2017 (https://neuroconductor.org/releases/).  We could not count the number of downloads of packages from GitHub unless they were releases (see https://github.com/r-lib/devtools/issues/1729).  Similarly, if anyone downloads the development version of packages from either a) the original author repository or b) the neuroconductor repository but not through releases, we cannot track these downloads.  As we have had many iterations of tweaking and changes, we had deleted a series of repositories on GitHub over time, therefore deleting their download statistics from releases.  Therefore, we believe these downloads may be underestimated for overall downloads, but should be more accurate for acute (monthly, weekly) downloads.
 
 # Existing support
 
