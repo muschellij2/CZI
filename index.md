@@ -146,6 +146,12 @@ time on this goal (0.5 full time equivalent).
 Though we wish to stabilize the Neuroconductor system, we wish to integrate analyses of imaging from Neuroconductor and "omics" from Bioconductor.  This integration is challenging due to the size of the data and heterogeneity of the sources, amongst many other reasons.  For a review, see @antonelli2019integrating. For example, the `limmi` package (https://github.com/muschellij2/limmi) is an attempt to coerce functional magnetic resonance imaging into a testing framework that both works with `limma` package [@limma] and into the `SummarizedExperiment` format, which both are fundamental elements from Bioconductor [@bioconductor].
 
 
+# Landscape Analysis
+
+The most similar project is Bioconductor (https://www.bioconductor.org/), which has 1823 packages related to bioinformatics.  The user base is much larger, and is the largest repository for R for omics research.  It is also been available since 2001 (more mature).  A whole set of dependencies in Neuroconductor will not be accepted to Bioconductor (or CRAN) due to its high build load, but is crucial to medical image analysis in R.
+
+In Python, NiPy (https://nipy.org/) is the most analogous to Neuroconductor, aggregating neuroimaging modules, which has 12 projects, with varying levels of maturity.  For example, NiPype (https://nipype.readthedocs.io/en/latest/) interfaces neuroimaging pipelines that has 132 authors and has been available since 2011.  Though most of the packages are related to neuroimaging, but many functions can be used for general image analysis.  MedPy (https://pypi.org/project/MedPy/) is also a module for medical imaging in python, which has 60,168 total downloads (730 monthly, https://pepy.tech/project/medpy).  
+
 
 # Existing support
 
