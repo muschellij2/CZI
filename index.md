@@ -115,7 +115,7 @@ The third objective, to scale the Neuroconductor platform, will be handled by Ad
 
 
 The timescale is given on the assumption of John Muschelli working part
-time on this goal (0.3 full time equivalent).  Our strategy to improve the stability of current packages is as follows:
+time on this goal (0.35 full time equivalent).  Our strategy to improve the stability of current packages is as follows:
 
 1. For the 54 with insufficient code coverages, make pull requests to the packages (approximately 10 per month) - 6 months.  
 2. Write tutorials for prospective contributors/developers on increasing code coverage and improved submissions - 2 months
