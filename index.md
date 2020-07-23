@@ -3,7 +3,7 @@ title: Increasing the Impact of Neuroconductor
 abstract: |
   Over the past 5 years, Neuroconductor has centralized the packages of medical image analysis in the R community.  As a repository of a wide variety of analyses of diseases such as Alzheimer's disease [@ding2019improved] and multiple sclerosis[@valcarcel2018dual; @sweeney2013automatic; @sweeney2013oasis], image processing and prediction [@tustison2019longitudinal; @shrivastav2018classification; @polzehlmagnetic; @shinohara2014statistical],  image visualization [@maag2018gganatogram; @mowinckel2019visualisation] and state-of-the-art statistical analyses [@vandekar2019robust].  For Neuroconductor to succeed for the next 5 years and beyond, we need to grow its contributor community, and improve the stability, usability, and portability of the platform.
 journal: ""
-date: "2020-01-23"
+date: "2020-07-23"
 bibliography: refs.bib
 header-includes:
    - \usepackage[margin=2.5cm]{geometry}
@@ -29,15 +29,15 @@ Neuroconductor is a platform for R package submission and repository of released
 
 The main objectives of this proposal are:
 
-1. improve the stability and usability of the current (N=98) packages in Neuroconductor.
+1. improve the stability and usability of the current (N=102) packages in Neuroconductor.
 2. increase the number of packages and community of Neuroconductor's contributors and developers by reaching out to seasoned users and helping them get involved more closely in the project.
 3. refactor the core architecture of the Neuroconductor backend platform to handle more packages and incorporate user workflows.  
 
 Our goals will be reached if:
 
-1. Each package has a vignette (a tutorial/long-form documentation) and all packages have a code coverage above 50% (currently 45% meet this criteria).
-2. We add at least 10 new packages over the course of the project and get contributions from 20 existing contributors (out of 26).  Contributions will be defined as releasing updates to packages through developers GitHub repositories or submitting additional packages to the collection. 
-3. Scale the Neuroconductor framework to 200 packages (currently has 98) and be able to achieve monthly releases, including releases of Docker images.
+1. Each package has a vignette (a tutorial/long-form documentation) and all packages have a code coverage above 50% (currently 48% meet this criteria).
+2. We add at least 10 new packages over the course of the project and get contributions from 20 existing contributors (out of 28).  Contributions will be defined as releasing updates to packages through developers GitHub repositories or submitting additional packages to the collection. 
+3. Scale the Neuroconductor framework to 200 packages (currently has 102) and be able to achieve monthly releases, including releases of Docker images.
 
 
 # Improve stability of Neuroconductor packages
@@ -53,12 +53,12 @@ By the end of the funding year, all current packages must meet these requirement
 
 # Growing the contributor community
 
-The Neuroconductor platform (https://neuroconductor.org/) [@neuroconductor] was started in 2014 at Johns Hopkins to centralize medical image analysis R packages, similar to the effort of Bioconductor [@bioconductor].  One of the main strengths of Neuroconductor is the developer community, which involves 26 maintainers residing in 5 countries, which contribute to, use, and advertise for Neuroconductor.   Our plan to strengthen the community is to host a conference call/meetup twice a year to discuss developments with the maintainers, including requesting feedback for ways to improve the platform, the submission process, feature requests, or increasing user/developer engagement.  With respect to users, we have had users in over 48 countries download packages from Neuroconductor.
+The Neuroconductor platform (https://neuroconductor.org/) [@neuroconductor] was started in 2014 at Johns Hopkins to centralize medical image analysis R packages, similar to the effort of Bioconductor [@bioconductor].  One of the main strengths of Neuroconductor is the developer community, which involves 28 maintainers residing in 5 countries, which contribute to, use, and advertise for Neuroconductor.   Our plan to strengthen the community is to host a conference call/meetup twice a year to discuss developments with the maintainers, including requesting feedback for ways to improve the platform, the submission process, feature requests, or increasing user/developer engagement.  With respect to users, we have had users in over 58 countries download packages from Neuroconductor.
 
 
 
 
-Comparatively, the project development team is small and but also less diverse.  The team is currently all white males, 2 US-born and 2 Romanian-born.  Moreover, one of the developers (John Muschelli) contributes a total of 48 packages to the project.  Many of these packages (18) are data packages, which include image templates or example data sets for analysis, requiring little maintenance.  We would like to increase the number of developers, especially those from different countries, races, and sex.  Currently, out of the 26 maintainers, only 6 are female (23%).  
+Comparatively, the project development team is small and but also less diverse.  The team is currently all white males, 2 US-born and 2 Romanian-born.  Moreover, one of the developers (John Muschelli) contributes a total of 48 packages to the project.  Many of these packages (18) are data packages, which include image templates or example data sets for analysis, requiring little maintenance.  We would like to increase the number of developers, especially those from different countries, races, and sex.  Currently, out of the 28 maintainers, only 7 are female (25%).  
 
 We propose to take the following steps to make it easier for new developers and users to contribute to the project.
 
@@ -98,7 +98,7 @@ We will also create a series of Docker images that have a large percentage of th
 
 ## Scaling Neuroconductor
 
-Though Neuroconductor can handle the 98 packages, we wish to grow the community and number of packages.  Whenever a new package is submitted, that package must be checked, along with any packages that depend on that package.  That creates a large number of continuous integration (CI) jobs.  Thus, increasing the number of packages will require either a) more concurrent jobs on cloud systems, or b) the setup of servers for our needs.  Now, we believe the CI systems we employ can handle our needs, but we need to expand above the free, single-user plans, while keeping the dependency structure bookkeeping on our server side.  
+Though Neuroconductor can handle the 102 packages, we wish to grow the community and number of packages.  Whenever a new package is submitted, that package must be checked, along with any packages that depend on that package.  That creates a large number of continuous integration (CI) jobs.  Thus, increasing the number of packages will require either a) more concurrent jobs on cloud systems, or b) the setup of servers for our needs.  Now, we believe the CI systems we employ can handle our needs, but we need to expand above the free, single-user plans, while keeping the dependency structure bookkeeping on our server side.  
 
 
 # Work plan
@@ -117,7 +117,7 @@ The third objective, to scale the Neuroconductor platform, will be handled by Ad
 The timescale is given on the assumption of John Muschelli working part
 time on this goal (0.35 full time equivalent).  Our strategy to improve the stability of current packages is as follows:
 
-1. For the 54 with insufficient code coverages, make pull requests to the packages (approximately 10 per month) - 6 months.  
+1. For the 53 with insufficient code coverages, make pull requests to the packages (approximately 10 per month) - 6 months.  
 2. Write tutorials for prospective contributors/developers on increasing code coverage and improved submissions - 2 months
 3. Improve the existing user documentation on https://neuroconductor.org/ - 3 months
 
